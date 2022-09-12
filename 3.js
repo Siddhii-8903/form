@@ -1,6 +1,5 @@
 let userForm = document.getElementById("user_form");
 var userEntries=[];
-
 let errors=[]
 const retieveEntries = ()=>{
     let entries = localStorage.getItem('userEntries')
@@ -21,7 +20,6 @@ const dobCell = `<td class='border px-4 py-2'>${entry.dob}</td>`
 const acceptTermsCell = `<td class='border px-4 py-2'>${entry.acceptTerms}</td>`
 const row = `<tr>${nameCell} ${emailCell} ${passwordCell} ${dobCell} ${acceptTermsCell}</tr>`
 return row
-
 }).join('\n')
 const table =` <table class='table-auto w-full'>
     <tr>
@@ -35,7 +33,6 @@ const table =` <table class='table-auto w-full'>
 let details = document.getElementById('user-entries')
 details.innerHTML=table
 }
-
 const saveUserForm = (event)=>{
 event.preventDefault();
 const FullName = document.getElementById('name').value
@@ -51,7 +48,6 @@ console.log({age,currentYear,birthYear})
 if(age < 18 || age > 55){
     document.getElementById('dob').style='border:1px solid red'
   return  alert("Age must be between 18 and 55")
-
 }else{
     document.getElementById('dob').style='border:none'
 
@@ -67,9 +63,7 @@ if(age < 18 || age > 55){
      localStorage.setItem("userEntries",JSON.stringify(userEntries))
     displayEntries()
     userForm.reset()
-   
 }
- 
 }
 userForm.addEventListener('submit',saveUserForm)
 displayEntries()
